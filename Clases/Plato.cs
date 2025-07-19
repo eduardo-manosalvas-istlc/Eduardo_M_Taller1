@@ -56,5 +56,16 @@ namespace Eduardo_M_Taller1.Clases
         { 
             return this.codigo;
         }
+        public int getId()
+        {
+            return this.id;
+        }
+
+        public void setDescripcion(string par_descripcion)
+        {
+            this.descripcion = par_descripcion;
+        }
+
+
     }
 }

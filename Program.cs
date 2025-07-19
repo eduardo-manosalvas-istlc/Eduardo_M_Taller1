@@ -110,6 +110,37 @@ namespace Eduardo_M_Taller1
         private static void ModificarCliente()
         {
             Console.Clear();
+            Console.Write("Ingrese la cédula del cliente:");
+            string cedula = Console.ReadLine();
+            Cliente objClienteConsultado = BaseDatos.BaseDeDatos.GetClienteXCedula(cedula);
+
+            if (objClienteConsultado == null)
+            {
+                Console.WriteLine("No se encontró el código buscado");
+            }
+            else
+            {
+                objClienteConsultado.Imprimir();
+                Console.Write("Ingrese la nueva Dirección del Cliente: ");
+                string par_direccion = Console.ReadLine();
+                Console.WriteLine();
+
+                Console.Write("Ingrese el nuevo mail del Cliente: ");
+                string par_mail = Console.ReadLine();
+                Console.WriteLine();
+
+                Console.Write("Ingrese el nuevo Celular del Cliente: ");
+                string par_celular = Console.ReadLine();
+                Console.WriteLine();
+                objClienteConsultado.setDireccion(par_direccion);
+                objClienteConsultado.setMail(par_mail);
+                objClienteConsultado.setCeular(par_celular);
+                BaseDatos.BaseDeDatos.BaseCliente.RemoveAt(objClienteConsultado.getId()-1);
+                BaseDatos.BaseDeDatos.BaseCliente.Insert(objClienteConsultado.getId()-1,objClienteConsultado);
+                Console.WriteLine("Registro Modificado con Éxito");
+
+
+            }
             Console.ReadLine();
         }
 
@@ -211,6 +242,28 @@ namespace Eduardo_M_Taller1
         private static void ModificarPlato()
         {
             Console.Clear();
+            Console.Write("Ingrese el código del plato:");
+            string codigo = Console.ReadLine();
+
+            Plato objPlatoConsultado = BaseDatos.BaseDeDatos.GetPlatoXCodigo(codigo);
+
+            if (objPlatoConsultado == null)
+            {
+                Console.WriteLine("No se encontró el código buscado");
+            }
+            else
+            {
+                objPlatoConsultado.Imprimir();
+                Console.Write("Ingrese la nueva Descripción del plato: ");
+                string par_descripcion = Console.ReadLine();
+                Console.WriteLine();
+
+                objPlatoConsultado.setDescripcion(par_descripcion);
+                BaseDatos.BaseDeDatos.BasePlatos.RemoveAt(objPlatoConsultado.getId() - 1);
+                BaseDatos.BaseDeDatos.BasePlatos.Insert(objPlatoConsultado.getId() - 1, objPlatoConsultado);
+                Console.WriteLine("Registro Modificado con Éxito");
+
+            }
             Console.ReadLine();
         }
 

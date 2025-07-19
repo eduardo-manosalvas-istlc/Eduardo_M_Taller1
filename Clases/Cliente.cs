@@ -39,6 +39,10 @@ namespace Eduardo_M_Taller1.Clases
         {
             return this.cedula;
         }
+        public int getId()
+        {
+            return this.id;
+        }
         public void Imprimir()
         {
             Console.WriteLine("*******************************************");
@@ -53,5 +57,23 @@ namespace Eduardo_M_Taller1.Clases
             Console.WriteLine("Fecha Nacimiento: " + this.fecha_nacimiento.ToLongDateString());
             Console.WriteLine("Edad: " + this.edad.ToString());
         }
+
+        public void setMail(string par_mail)
+        {
+            this.mail= par_mail;
+        }
+
+        public void setDireccion(string par_direccion)
+        {
+            this.direccion = par_direccion;
+        }
+        public void setCeular(string par_celular)
+        {
+            this.celular = par_celular;
+        }
+
+
+
+
     }
 }
